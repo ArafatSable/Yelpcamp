@@ -29,7 +29,7 @@ const reviewRoutes = require("./routes/reviews");
 const dbUrl = process.env.DB_URL;
 //const dbUrl1 = mongodb://127.0.0.1:27017/;
 mongoose.set("strictQuery", false);
-mongoose.connect("mongodb://127.0.0.1:27017/YelpCamp", {
+mongoose.connect(dbUrl, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
@@ -159,6 +159,7 @@ app.use((err, req, res, next) => {
   res.status(statusCode).render("error", { err });
 });
 
-app.listen(3000, () => {
+app.listen(2000, () => {
   console.log("Serving on port 3000");
 });
+
